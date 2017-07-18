@@ -1,3 +1,4 @@
 theme: jekyll-theme-architect
-title: Morgan Peat's blog
+title: Morgan's blog
 description: Random thoughts and findings
+excerpt_separator: <!--more-->
