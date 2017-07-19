@@ -4,11 +4,8 @@ layout: default
 ---
 # Blog posts
 
-<ul>
   {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-      {{ post.excerpt }}
-    </li>
+### ({{ post.title }})[{{ post.url }}]
+{{ post.excerpt }}
   {% endfor %}
 </ul>
