@@ -4,3 +4,4 @@ description: Random thoughts and findings
 excerpt_separator: <!--more-->
 gems:
 - jekyll-sitemap
+- jekyll-feed
