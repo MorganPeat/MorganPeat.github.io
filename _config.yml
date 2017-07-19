@@ -2,3 +2,5 @@ theme: jekyll-theme-architect
 title: Morgan's blog
 description: Random thoughts and findings
 excerpt_separator: <!--more-->
+gems:
+- jekyll-sitemap
