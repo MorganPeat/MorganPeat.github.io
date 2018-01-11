@@ -8,6 +8,7 @@ tags: [cloud, plan]
 
 I have just started working on a proof of concept project to migrate a .Net application from running on in-house infrastructure to "The Cloud". It sounds like a great opportunity to learn new skills and play with some exciting new technology, but clearly it begs a whole host of questions...
 
+<!--more-->
 
 ## Why do we want to migrate to The Cloud?
 Because it's cool, obviously! But on a more sensible note, there are several clear reasons:
