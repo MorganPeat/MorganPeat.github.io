@@ -1,5 +1,4 @@
 theme: jekyll-theme-architect
-excerpt_separator: <!--more-->
 
 title: Morgan's blog
 description: Random thoughts and findings
@@ -14,12 +13,12 @@ footer-links:
   email:
   facebook:
   flickr:
-  github: 
+  github:
   instagram:
   linkedin:
   pinterest:
   rss: RSS # just type anything here for a working RSS icon
-  twitter: 
+  twitter:
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   youtube: # channel/<your_long_string> or user/<user-name>
   googleplus: # anything in your profile username that comes after plus.google.com/
@@ -57,7 +56,7 @@ kramdown:
 # Set the Sass partials directory, as we're using @imports
 sass:
   style: :expanded # You might prefer to minify using :compressed
-  
+
 # Use the following plug-ins
 gems:
   - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
@@ -70,4 +69,3 @@ exclude:
   - LICENSE
   - README.md
   - CNAME
-  
