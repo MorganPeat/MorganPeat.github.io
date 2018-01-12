@@ -3,7 +3,7 @@ layout: post
 title:  "Migrating an on-premises app to the cloud - 1"
 date:   2018-01-11 16:00:00
 categories: [CloudMigration]
-tags: [cloud, plan]
+tags: [cloud, cloud-plan]
 ---
 
 I have just started working on a proof of concept project to migrate a .Net application from running on in-house infrastructure to "The Cloud". It sounds like a great opportunity to learn new skills and play with some exciting new technology, but clearly it begs a whole host of questions...
