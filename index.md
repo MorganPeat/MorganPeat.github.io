@@ -19,4 +19,4 @@ layout: default
 
 <hr>
 
-{% include archive.html %}
+{% include tags.html %}
