@@ -13,7 +13,7 @@ Cost! .Net Core code can run cross-platform which means it can be run on Linux, 
 
 ## How to do it?
 There are plenty of articles around which describe the methods, but the general advice seems to be:
-* Make sure all Nuget dependencies can target .Net Core too.
+* First make sure all Nuget dependencies can target .Net Core too.
 * Don't bother trying to convert a csproj file; just start from scratch and re-add dependencies as needed.
 
 The blog articles I found most helpful are these two:
@@ -21,7 +21,7 @@ The blog articles I found most helpful are these two:
 * [Old csproj to new csproj: Visual Studio 2017 upgrade guide](http://www.natemcmaster.com/blog/2017/03/09/vs2015-to-vs2017-upgrade/)
 
 ## Caveats
-So far we have just been moving our in-house Nuget libraries to .Net Core and haven't looked at executables or ASP.Net Core yet. That will be the subject of further investigation.
+So far we have just been moving our in-house Nuget libraries to .Net Core and haven't yet looked at executables or ASP.Net Core. That will be the subject of further investigation.
 
 ## tl;dr
 By targeting .Net Core you can run your Cloud application on Linux which is cheaper than Windows.

@@ -6,22 +6,24 @@ categories: [Microservices]
 tags: [cloud, cloud-prep, microservices]
 ---
 
-Without any further investigation into what is needed to run .Net applications on the Cloud it is clear that some preparatory work can take place now. One such piece of work is to migrate application code from targeting the .Net Framework to targeting .Net Core.
+We have decided to refactor our application to a Microservice architecture because we think it will be easier to migrate to Cloud, support and maintain. This means, in the language of Martin Fowler, is
+<blockquote>
+an approach to developing a single application as a suite of small services, each running in its own process and communicating with lightweight mechanisms, often an HTTP resource API. These services are built around business capabilities and independently deployable by fully automated deployment machinery. There is a bare minimum of centralized management of these services, which may be written in different programming languages and use different data storage technologies.
+</blockquote>
+https://martinfowler.com/articles/microservices.html
+
+Instead of putting all the functionality into a single block and scaling out by replicating across servers, each element of functionality becomes a separate service which is deployed in isolation, and the service can be scaled out by replicating as required.
+!(https://martinfowler.com/articles/microservices/images/decentralised-data.png)
+
 
 ## Why bother?
-Cost! .Net Core code can run cross-platform which means it can be run on Linux, not just on Windows. A back-of-a-fag-packet look at Amazon's EC2 on-demand pricing shows a "Linux" instance (t2.large in London) costing about 10 cents / hour versus a similar "Windows" instance costing 13 cents. The difference is presumably due to licensing costs and is enough to make us want to consider re-targeting our code.
+Links to useful resources explaining microservices, their benefits and drawbacks
+* https://martinfowler.com/articles/microservices.html
+* https://martinfowler.com/microservices/
+* https://martinfowler.com/articles/microservice-trade-offs.html
+* http://www.vinaysahni.com/best-practices-for-building-a-microservice-architecture This article contains a whole bunch of best practices which I'll be looking into in more detail soon
+* https://www.codementor.io/murphyisiwele/microservices-vs-monolithic-applications-why-you-should-consider-microservices-b2jdwgz2l
 
-## How to do it?
-There are plenty of articles around which describe the methods, but the general advice seems to be:
-* Make sure all Nuget dependencies can target .Net Core too.
-* Don't bother trying to convert a csproj file; just start from scratch and re-add dependencies as needed.
-
-The blog articles I found most helpful are these two:
-* [How to port from .net framework to .net standard](https://codehollow.com/2017/05/port-net-framework-net-standard/)
-* [Old csproj to new csproj: Visual Studio 2017 upgrade guide](http://www.natemcmaster.com/blog/2017/03/09/vs2015-to-vs2017-upgrade/)
-
-## Caveats
-So far we have just been moving our in-house Nuget libraries to .Net Core and haven't looked at executables or ASP.Net Core yet. That will be the subject of further investigation.
 
 ## tl;dr
-By targeting .Net Core you can run your Cloud application on Linux which is cheaper than Windows.
+We are moving to microservices, there's a whole lot of stuff to think about
