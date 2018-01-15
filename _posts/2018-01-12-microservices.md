@@ -13,7 +13,7 @@ an approach to developing a single application as a suite of small services, eac
 https://martinfowler.com/articles/microservices.html
 
 Instead of putting all the functionality into a single block and scaling out by replicating across servers, each element of functionality becomes a separate service which is deployed in isolation, and the service can be scaled out by replicating as required.
-!(https://martinfowler.com/articles/microservices/images/decentralised-data.png)
+![Decentralised data](https://martinfowler.com/articles/microservices/images/decentralised-data.png)
 
 
 ## Why bother?
