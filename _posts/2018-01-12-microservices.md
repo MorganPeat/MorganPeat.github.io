@@ -3,7 +3,7 @@ layout: post
 title:  "Deciding to move to microservices"
 date:   2018-01-12 15:00:00
 categories: [Microservices]
-tags: [cloud, cloud-prep, microservices]
+tags: [microservices]
 ---
 
 We have decided to refactor our application to a Microservice architecture because we think it will be easier to migrate to Cloud, support and maintain. This means, in the language of Martin Fowler, is

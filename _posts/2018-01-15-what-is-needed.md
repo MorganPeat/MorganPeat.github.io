@@ -10,7 +10,7 @@ I have been asked to pull together a list of "stuff" that I need from my company
 ![Application architecture](https://developer.xamarin.com/guides/xamarin-forms/enterprise-application-patterns/containerized-microservices/Images/microservicesarchitecturewitheventbus.png)
 
 ## What this means to our application
-* Public APIs exposed via REST / HTTP (maybe served via some [Gateway API] (https://microservices.io/patterns/apigateway.html))
+* Public APIs exposed via REST / HTTP (maybe served via some [Gateway API](https://microservices.io/patterns/apigateway.html))
 * Containerised microservices, each hosting its own web interface and having its own storage
 * Some common event bus (either RabbitMQ or some Cloud-native bus like Azure Service Bus / Amazon Simple Queue Service)
 * MongoDB as the data store (our application is tightly bound to Mongo so we have no real alternative at the moment)
