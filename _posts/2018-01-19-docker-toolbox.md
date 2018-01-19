@@ -11,8 +11,11 @@ Where I work we are still on Windows 7 development machines which means we can't
 The [Docker Toolbox on Windows](https://docs.docker.com/toolbox/toolbox_install_windows/) page provides the download link and installation instructions. The pre-requisites are:
 * Your machine must have a 64-bit operating system running Windows 7 or higher
 * Virtualization must be enabled on your machine (BIOS setting; I had to get my helpdesk to do this since my PC is not located anywhere near my desk)
+
 Once installed, you fire up the Docker Quickstart Terminal.
+
 Boom!
+
 {% highlight shell %}
 Running pre-create checks...
 (default) No default Boot2Docker ISO found locally, downloading the latest release...
@@ -23,10 +26,12 @@ Looks like something went wrong in step ´Checking if machine default exists´..
 ## Getting the Boot2Docker ISO image
 I think the issue is that the quickstart terminal doesn't have access through the corporate firewall so is unable to locate the ISO. A [forum post](https://forums.docker.com/t/pre-create-check-failed-when-first-time-launch-docker-quickstart-terminal/9977/3)  gives a workaround:
 * Download the latest boot2docker image from https://github.com/boot2docker/boot2docker/releases (v18.01.0-ce for me)
-* Save it to the Docker local cache in `c:\\user\\USERNAME.docker\\machine\\cache`
+* Save it to the Docker local cache in `c:\user\USERNAME.docker\machine\cache`
 
 Success!
+
 ![Docker terminal]({{ site.baseurl }}/images/docker-terminal.png "Docker terminal")
+
 
 ## Hello, world
 Next up, run the hello world sample:
@@ -56,3 +61,23 @@ latest: Pulling from library/hello-world
 C:\Program Files\Docker Toolbox\docker.exe: Get https://registry-1.docker.io/v2/library/hello-world/manifests/sha256:8072a54ebb3bc136150e2f2860f00a7bf45f13eeb917cca2430fcd0054c8e51b: net/http: TLS handshake timeout.
 See 'C:\Program Files\Docker Toolbox\docker.exe run --help'.
 {% endhighlight %}
+
+
+# Docker quickstart terminal environment variables
+After much googling I came across  the solution: the docker terminal didn't have the correct environment variables set. See the [Docker toolbox troubleshooting page](https://docs.docker.com/toolbox/faqs/troubleshoot/#solutions) for details.
+Reset them with `$ eval $("C:\Program Files\Docker Toolbox\docker-machine.exe" env)`, then try again.
+
+{% highlight shell %}
+$ docker run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+ca4f61b1923c: Pull complete
+Digest: sha256:66ef312bbac49c39a89aa9bcc3cb4f3c9e7de3788c944158df3ee0176d32b751
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+{% endhighlight %}
+
+
+Bingo! We now have a working Docker toolbox!
