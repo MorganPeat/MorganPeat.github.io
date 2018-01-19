@@ -7,6 +7,8 @@ tags: [docker]
 ---
 Where I work we are still on Windows 7 development machines which means we can't use Docker for Windows - [Windows 10 is required](https://docs.docker.com/docker-for-windows/faqs/#why-is-windows-10-required). Luckily there is [Docker Toolbox](https://docs.docker.com/toolbox/overview/), the "Legacy desktop solution" for systems that don't meet the minimum requirements. Here a small Linux VM is spun up which will host Docker. I spent a couple days getting it set up and configuring it to work in my company. This post details the steps and workarounds I took.
 
+<br/>
+
 ## Installing Docker Toolbox
 The [Docker Toolbox on Windows](https://docs.docker.com/toolbox/toolbox_install_windows/) page provides the download link and installation instructions. The pre-requisites are:
 * Your machine must have a 64-bit operating system running Windows 7 or higher
@@ -23,6 +25,7 @@ Error with pre-create check: "Get https://api.github.com/repos/boot2docker/boot2
 Looks like something went wrong in step ´Checking if machine default exists´...
 {% endhighlight %}
 
+<br/>
 
 ## Getting the Boot2Docker ISO image
 I think the issue is that the quickstart terminal doesn't have access through the corporate firewall so is unable to locate the ISO. A [forum post](https://forums.docker.com/t/pre-create-check-failed-when-first-time-launch-docker-quickstart-terminal/9977/3)  gives a workaround:
@@ -33,6 +36,7 @@ Success!
 
 ![Docker terminal]({{ site.baseurl }}/images/docker-terminal.png "Docker terminal")
 
+<br/>
 
 ## VM proxy settings
 Next up, run the hello world sample:
@@ -63,6 +67,7 @@ C:\Program Files\Docker Toolbox\docker.exe: Get https://registry-1.docker.io/v2/
 See 'C:\Program Files\Docker Toolbox\docker.exe run --help'.
 {% endhighlight %}
 
+<br/>
 
 # Docker quickstart terminal environment variables
 After much googling I came across  the solution: the docker terminal didn't have the correct environment variables set. See the [Docker toolbox troubleshooting page](https://docs.docker.com/toolbox/faqs/troubleshoot/#solutions) for details.
@@ -80,6 +85,9 @@ Hello from Docker!
 This message shows that your installation appears to be working correctly.
 {% endhighlight %}
 
+<br/>
 
 Bingo! We now have a working Docker toolbox!
-  
+
+<br/>
+<br/>
