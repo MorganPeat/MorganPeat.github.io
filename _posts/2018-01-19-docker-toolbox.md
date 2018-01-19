@@ -23,6 +23,7 @@ Error with pre-create check: "Get https://api.github.com/repos/boot2docker/boot2
 Looks like something went wrong in step ´Checking if machine default exists´...
 {% endhighlight %}
 
+
 ## Getting the Boot2Docker ISO image
 I think the issue is that the quickstart terminal doesn't have access through the corporate firewall so is unable to locate the ISO. A [forum post](https://forums.docker.com/t/pre-create-check-failed-when-first-time-launch-docker-quickstart-terminal/9977/3)  gives a workaround:
 * Download the latest boot2docker image from https://github.com/boot2docker/boot2docker/releases (v18.01.0-ce for me)
@@ -33,7 +34,7 @@ Success!
 ![Docker terminal]({{ site.baseurl }}/images/docker-terminal.png "Docker terminal")
 
 
-## Hello, world
+## VM proxy settings
 Next up, run the hello world sample:
 {% highlight shell %}
 $ docker run hello-world
@@ -81,3 +82,4 @@ This message shows that your installation appears to be working correctly.
 
 
 Bingo! We now have a working Docker toolbox!
+  
