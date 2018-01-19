@@ -13,7 +13,7 @@ The [Docker Toolbox on Windows](https://docs.docker.com/toolbox/toolbox_install_
 * Virtualization must be enabled on your machine (BIOS setting; I had to get my helpdesk to do this since my PC is not located anywhere near my desk)
 Once installed, you fire up the Docker Quickstart Terminal.
 Boom!
-{% highlight %}
+{% highlight shell %}
 Running pre-create checks...
 (default) No default Boot2Docker ISO found locally, downloading the latest release...
 Error with pre-create check: "Get https://api.github.com/repos/boot2docker/boot2docker/releases/latest: dial tcp: lookup api.github.com: no such host"
