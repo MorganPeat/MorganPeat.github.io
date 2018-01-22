@@ -35,10 +35,10 @@ RUN dotnet publish -c Release -o out
 ENTRYPOINT ["dotnet", "out/firstdockerapp.dll"]
 {% endhighlight %}
 
-The Dockerfile is pretty self-explanatory, although I haven't yet worked out why the nuget restore and source code copy are separate steps.
+The Dockerfile is pretty self-explanatory (although see [this post](2018-01-22-dotnet-docker-base-images) for more on the dotnet base docker images). I haven't yet worked out why the nuget restore and source code copy are separate steps, though.
 <br/>
 <br/>
-Building my application from the Docker command line runs this Dockerfile and givesme  this output:
+Building my application from the Docker command line runs this Dockerfile and gives me this output:
 {% highlight shell %}
 $ docker build
 "docker build" requires exactly 1 argument.
@@ -70,3 +70,8 @@ Step 4/7 : RUN dotnet restore
 /usr/share/dotnet/sdk/2.1.4/NuGet.targets(103,5): error :   Couldn't resolve host name [/app/FirstDockerApp.csproj]
 The command '/bin/sh -c dotnet restore' returned a non-zero code: 1
 {% endhighlight %}
+
+<br/>
+<br/>
+Next I'll look at how to resolve this problem, and get my first Docker app up and running.
+<br/>
