@@ -34,3 +34,39 @@ RUN dotnet publish -c Release -o out
 
 ENTRYPOINT ["dotnet", "out/firstdockerapp.dll"]
 {% endhighlight %}
+
+The Dockerfile is pretty self-explanatory, although I haven't yet worked out why the nuget restore and source code copy are separate steps.
+<br/>
+<br/>
+Building my application from the Docker command line runs this Dockerfile and givesme  this output:
+{% highlight shell %}
+$ docker build
+"docker build" requires exactly 1 argument.
+See 'docker build --help'.
+
+723254a2c089: Pull complete
+abe15a44e12f: Pull complete
+409a28e3cc3d: Pull complete
+503166935590: Pull complete
+09d35e02522b: Pull complete
+7b915999d3d4: Pull complete
+73625913309a: Pull complete
+b457441733d9: Pull complete
+2c97b35a16e4: Pull complete
+ad5633a9a2eb: Pull complete
+Digest: sha256:f905f7873db5fa5b6d67b326f717616595cb675b9e38bd9d307fe22f3769fc16
+Status: Downloaded newer image for microsoft/aspnetcore-build:2.0             ]  41.09MB/153.4MB
+ ---> 6105426f13e9loading [==>                                                ]  12.96MB/298.4MB
+Step 2/7 : WORKDIR /appcomplete
+Removing intermediate container 9b24ca1d3909                                  ]  40.55MB/153.4MB
+ ---> bf35441e2363loading [==>                                                ]  12.42MB/298.4MB
+Step 3/7 : COPY *.csproj ./
+ ---> 863158a144a7ing
+Step 4/7 : RUN dotnet restore
+ ---> Running in 018f7409d033
+  Restoring packages for /app/FirstDockerApp.csproj...
+/usr/share/dotnet/sdk/2.1.4/NuGet.targets(103,5): error : Unable to load the service index for source https://api.nuget.org/v3/index.json. [/app/FirstDockerApp.csproj]
+/usr/share/dotnet/sdk/2.1.4/NuGet.targets(103,5): error :   An error occurred while sending the request. [/app/FirstDockerApp.csproj]
+/usr/share/dotnet/sdk/2.1.4/NuGet.targets(103,5): error :   Couldn't resolve host name [/app/FirstDockerApp.csproj]
+The command '/bin/sh -c dotnet restore' returned a non-zero code: 1
+{% endhighlight %}
