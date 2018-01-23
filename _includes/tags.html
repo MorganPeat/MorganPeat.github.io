@@ -4,6 +4,7 @@
 	<p class="post-meta" style="text-align: justify;">
 	{% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
 	{% assign tags = site_tags | split:',' | sort %}
+	{% assign tags = (tags | where:'draft','false') %}
 	{% include tagcloud.html %}
 	</p>
 </div>

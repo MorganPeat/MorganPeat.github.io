@@ -6,13 +6,11 @@ layout: default
 <h1 class="tag-title">Tag: {{ page.tag }}</h1>
 <ul>
 {% for post in site.tags[page.tag] %}
-  {% unless post.draft == true %}
-    <li>
-    	<a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date_to_string }})<br>
-    	{{ post.description }}
-    	<!-- Tags: {{ post.tags | join: ", " }} -->
-    </li>
-  {% endunless %}
+  <li>
+  	<a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date_to_string }})<br>
+  	{{ post.description }}
+  	<!-- Tags: {{ post.tags | join: ", " }} -->
+  </li>
 {% endfor %}
 </ul>
 </div>

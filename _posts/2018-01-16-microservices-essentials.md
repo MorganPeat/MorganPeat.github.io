@@ -4,7 +4,7 @@ title:  "Microservices essentials"
 date:   2018-01-16 17:00:00
 categories: [Microservices]
 Xtags: [microservices]
-tags: [microservices]
+tags: [draft]
 draft: true
 ---
 
