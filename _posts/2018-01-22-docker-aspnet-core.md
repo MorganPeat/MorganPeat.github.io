@@ -33,10 +33,10 @@ RUN dotnet restore
 COPY . ./
 RUN dotnet publish -c Release -o out
 
-ENTRYPOINT ["dotnet", "out/firstdockerapp.dll"]
+ENTRYPOINT ["dotnet", "out/FirstDockerApp.dll"]
 {% endhighlight %}
 
-The Dockerfile is pretty self-explanatory (although see [this post](2018-01-22-dotnet-docker-base-images) for more on the dotnet base docker images). I haven't yet worked out why the nuget restore and source code copy are separate steps, though.
+The Dockerfile is pretty self-explanatory (although see [this post]({% post_url 2018-01-22-dotnet-docker-base-images %}) for more on the dotnet base docker images). I haven't yet worked out why the nuget restore and source code copy are separate steps, though.
 <br/>
 <br/>
 Building my application from the Docker command line runs this Dockerfile and gives me this output:
