@@ -5,7 +5,7 @@ layout: default
 <div class="posts">
   {% assign counter = '0' %}
   {% for post in site.posts %}
-    {% if post.draft == "false" and counter < '10' %}
+    {% if post.draft == false and counter < '10' %}
       {% capture counter %}{{ counter | plus:'1' }}{% endcapture %}
         <article class="post">
 
