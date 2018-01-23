@@ -4,6 +4,7 @@ title:  "First use of Docker with ASP.Net Core"
 date:   2018-01-19 15:00:00
 categories: [Docker]
 tags: [docker, netcoreapp]
+draft : false
 ---
 Now I have Docker [up and running]({% post_url 2018-01-19-docker-toolbox %}) I wanted to set up an ASP.Net Core application. As with Docker itself, getting a simple "Hello, World" application running in the corporate environment was not as straightforward as I could have hoped. Below is the summary of the steps I had to take which will hopefully save other people some considerable time! I have pushed the source code up to [my git repository](https://github.com/MorganPeat/FirstDockerApp/) and have made each incremental change a distinct commit so it is easy to follow.
 

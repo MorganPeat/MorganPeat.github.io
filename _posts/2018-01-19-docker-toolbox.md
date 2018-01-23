@@ -4,6 +4,7 @@ title:  "Installing Docker toolbox on Windows 7"
 date:   2018-01-19 15:00:00
 categories: [Docker]
 tags: [docker]
+draft : false
 ---
 Where I work we are still on Windows 7 development machines which means we can't use Docker for Windows - [Windows 10 is required](https://docs.docker.com/docker-for-windows/faqs/#why-is-windows-10-required). Luckily there is [Docker Toolbox](https://docs.docker.com/toolbox/overview/), the "Legacy desktop solution" for systems that don't meet the minimum requirements. Here a small Linux VM is spun up which will host Docker. I spent a couple days getting it set up and configuring it to work in my company. This post details the steps and workarounds I took.
 

@@ -4,6 +4,7 @@ title:  "Considering a move to microservices"
 date:   2018-01-16 10:00:00
 categories: [Microservices]
 tags: [microservices]
+draft : false
 ---
 
 Martin Fowler has a lot of good advice about things to think about before moving to microservices. The term he coined is [Microservice Envy](https://www.thoughtworks.com/radar/techniques/microservice-envy), the temptation to rush into microservices without considering the complexity premium that must be paid and the procedures that need to be in place. In the hope of avoiding as many mistakes as possible, here are some of the things we need to think about.

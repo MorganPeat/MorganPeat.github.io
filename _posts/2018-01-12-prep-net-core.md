@@ -4,6 +4,7 @@ title:  "Migrating to the cloud - 2 - prep work - .Net Core"
 date:   2018-01-12 12:00:00
 categories: [CloudMigration]
 tags: [cloud, cloud-prep, netcoreapp]
+draft : false
 ---
 
 Without any further investigation into what is needed to run .Net applications on the Cloud it is clear that some preparatory work can take place now. One such piece of work is to migrate application code from targeting the .Net Framework to targeting .Net Core.

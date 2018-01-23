@@ -4,6 +4,7 @@ title:  "Requirements for Cloud POC"
 date:   2018-01-12 15:00:00
 categories: [CloudMigration]
 tags: [cloud, cloud-plan]
+draft : false
 ---
 
 I have been asked to pull together a list of "stuff" that I need from my company in order to progress our Cloud POC. This means jumping ahead a bit to make some assumptions / guesstimates as to what our Cloud architecture will look like. So without any justification or rationale (which will come later, if these assumptions hold) our application will look something like this (stolen) image:
