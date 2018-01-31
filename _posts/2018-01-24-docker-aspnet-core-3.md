@@ -49,4 +49,4 @@ In order to access this page _outside_ my machine, I need to forward port 8000 o
 6. Add rule: Protocol TCP, Host Port 8080, Guest Port 8080 (leave Host IP and Guest IP empty)
 7. Guest is your docker container and Host is your machine
 
-More details, and a great write-up on this, at https://stackoverflow.com/questions/33814696/how-to-connect-to-a-docker-container-from-outside-the-host-same-network-windo
+More details, and a great write-up on this, at [https://stackoverflow.com/questions/33814696/how-to-connect-to-a-docker-container-from-outside-the-host-same-network-windo](https://stackoverflow.com/questions/33814696/how-to-connect-to-a-docker-container-from-outside-the-host-same-network-windo)

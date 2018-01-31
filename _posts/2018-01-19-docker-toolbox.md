@@ -49,8 +49,11 @@ See 'C:\Program Files\Docker Toolbox\docker.exe run --help'.
 {% endhighlight %}
 
 Oh dear! It's the proxy server again. But this time its the new boot2docker VM that can't get through. Google to the rescue!
-* https://stackoverflow.com/questions/24489265/docker-boot2docker-set-http-https-proxies-for-docker-on-os-x
-* https://docs.docker.com/toolbox/faqs/troubleshoot/#configure-http-proxy-settings-on-docker-machines
+* [https://stackoverflow.com/questions/24489265/docker-boot2docker-set-http-https-proxies-for-docker-on-os-x](https://stackoverflow.com/questions/24489265/docker-boot2docker-set-http-https-proxies-for-docker-on-os-x)
+* [https://docs.docker.com/toolbox/faqs/troubleshoot/#configure-http-proxy-settings-on-docker-machines](https://docs.docker.com/toolbox/faqs/troubleshoot/#configure-http-proxy-settings-on-docker-machines)
+
+<br/>
+<br/>
 
 I chose the option of editing the config within the VM, rather than supplying parameters. YMMV. What I did:
 * `docker-machine ssh` to get a terminal session in the VM

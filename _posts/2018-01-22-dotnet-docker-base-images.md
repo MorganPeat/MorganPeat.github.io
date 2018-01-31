@@ -12,9 +12,10 @@ There are a whole host of Docker base images created by Microsoft so for my own 
 [Docker best practices](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#use-multi-stage-builds) suggest using multi-stage builds when creating images. In the dotnet world this means using an intermediate "build" image (with associated SDKs, etc) to compile and build your app; then copying to a "final" image which is based off a more optimised, bare-bones install. Aside from the more lightweight base image it means you avoid all the hassle of the intermediate files ("obj" etc): either deleting them or shipping an overblown final image.
 
 ## microsoft/dotnet
-https://hub.docker.com/r/microsoft/dotnet/
-https://github.com/dotnet/dotnet-docker
-https://docs.microsoft.com/en-us/dotnet/core/docker/building-net-docker-images
+* [https://hub.docker.com/r/microsoft/dotnet/](https://hub.docker.com/r/microsoft/dotnet/)
+* [https://github.com/dotnet/dotnet-docker](https://github.com/dotnet/dotnet-docker)
+* [https://docs.microsoft.com/en-us/dotnet/core/docker/building-net-docker-images](https://docs.microsoft.com/en-us/dotnet/core/docker/building-net-docker-images)
+
 These are the official images for .NET Core for
 * Linux
 * Windows Server 2016 Nano Server
@@ -36,8 +37,9 @@ The `runtime` vs `runtime-deps` decision depends on whether an application is "f
 
 
 ## microsoft/aspnetcore, microsoft/aspnetcore-build
-https://hub.docker.com/r/microsoft/aspnetcore/
-https://hub.docker.com/r/microsoft/aspnetcore-build/
-https://github.com/aspnet/aspnet-docker
+* [https://hub.docker.com/r/microsoft/aspnetcore/](https://hub.docker.com/r/microsoft/aspnetcore/)
+* [https://hub.docker.com/r/microsoft/aspnetcore-build/](https://hub.docker.com/r/microsoft/aspnetcore-build/)
+* [https://github.com/aspnet/aspnet-docker](https://github.com/aspnet/aspnet-docker)
+
 These are the official images for building and running compiled ASP.NET Core applications. As you would expect, the ASP.Net Core images are based on the .NET Core base images.
 In the runtime image (`microsoft/aspnetcore`) each specific runtime image contains native ASP.NET Core binaries for improved cold start performance (apparently JIT-ing the runtime is very slow). The build image (`microsoft/aspnetcore-build`) contains a local nuget cache for the ASP.NET Core binaries to improve `dotnet restore` performance.

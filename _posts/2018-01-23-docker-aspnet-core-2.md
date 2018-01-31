@@ -55,8 +55,8 @@ root@aaaaaaaaaaaa:/app# dotnet restore
 ## Proxy settings in Dockerfile
 
 A quick bit of googling shows I can pass these environment variables via the Dockerfile:
-* https://stackoverflow.com/questions/46679808/cant-set-proxy-in-dockerfile
-* https://stackoverflow.com/questions/22179301/how-do-you-run-apt-get-in-a-dockerfile-behind-a-proxy
+* [https://stackoverflow.com/questions/46679808/cant-set-proxy-in-dockerfile](https://stackoverflow.com/questions/46679808/cant-set-proxy-in-dockerfile)
+* [https://stackoverflow.com/questions/22179301/how-do-you-run-apt-get-in-a-dockerfile-behind-a-proxy](https://stackoverflow.com/questions/22179301/how-do-you-run-apt-get-in-a-dockerfile-behind-a-proxy)
 
 It's not ideal to have my username and password hardcoded in a Dockerfile, obviously! But at least this gets me unblocked for my first app. I'll need to contact the company InfoSec guys to work out what 'proper' production usage should be.
 

@@ -15,7 +15,7 @@ First I started off with a very basic ASP.Net Core app by creating a new project
 dotnet build
 dotnet run
 {% endhighlight %}
-Browse to http://localhost:53545/api/values
+Browse to [http://localhost:53545/api/values](http://localhost:53545/api/values)
 
 <br/>
 ## Dockerfile
@@ -74,5 +74,5 @@ The command '/bin/sh -c dotnet restore' returned a non-zero code: 1
 
 <br/>
 <br/>
-Next I'll look at how to resolve this problem, and get my first Docker app up and running.
+I don't have access to nuget.org through the corporate firewall. Next I'll look at how to resolve this problem, and get my first Docker app up and running.
 <br/>
