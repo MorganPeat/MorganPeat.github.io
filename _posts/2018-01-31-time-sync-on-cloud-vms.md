@@ -3,9 +3,8 @@ layout: post
 title:  "On time - keeping an accurate clock on Cloud VMs"
 date:   2018-01-31 10:00:00
 categories: [CloudMigration]
-Xtags: [cloud]
-tags: [draft]
-draft : true
+tags: [cloud]
+draft : false
 ---
 Some systems where I work come under the MiFID II requirements for clock synchronisation, known as [RTS-25](http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv:OJ.L_.2017.087.01.0148.01.ENG&toc=OJ:L:2017:087:TOC). These guidelines state that
 > Operators of trading venues and their members or participants shall synchronise the business clocks they use to record the date and time of any reportable event. ... Operators of trading venues shall ensure that their business clocks adhere to the levels of accuracy specified in Table 1.
