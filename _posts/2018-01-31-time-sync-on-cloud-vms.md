@@ -57,7 +57,7 @@ It seems (although I can't find a source for this) that the MiFID II approach is
 [Google's approach](https://cloudplatform.googleblog.com/2016/11/making-every-leap-second-count-with-our-new-public-NTP-servers.html) is to smooth out over 10 hours each side:
 >  Instead of adding a single extra second to the end of the day, we'll run the clocks 0.0014% slower across the ten hours before and ten hours after the leap second, and “smear” the extra second across these twenty hours.
 
-The upshot of this is that our Cloud VM clocks may tell a different time depending on their NTP server, regardless of how accurately the clock thinks it is tracking UTC. This means Cloud VMs may not meet MiDID II requirements, at least on those irregular days where a leap second may take place.
+The upshot of this is that our Cloud VM clocks may tell a different time depending on their NTP server, regardless of how accurately the clock thinks it is tracking UTC. This means Cloud VMs may not meet MiFID II requirements, at least on those days where a leap second may take place.
 
 However, Amazon says:
 > In the future, we will also provide mechanisms for accessing non-leap smeared time.
