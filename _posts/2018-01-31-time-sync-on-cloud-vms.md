@@ -16,7 +16,7 @@ How to achieve this on Cloud VMs?
 From my experiments with Windows VMs it seems that Azure VMs are set up to sync to `time.windows.com` by default. Google Compute VMs sync to `metadata.google.internal` but AWS VMs are left as default.
 
 ### Amazon Time Sync Service
-A relatively new (November 2017) service on AWS should help to keep clocks in sync. It ...
+A relatively new (November 2017) service on AWS should help to keep clocks in sync. It
 > utilizes a fleet of redundant satellite-connected and atomic reference clocks in AWS regions to deliver current time readings of the Coordinated Universal Time (UTC) global standard. The service is designed to be highly available with a continuously monitored time infrastructure and provides a low variance reference time source
 
 Basically this means providing a well-known IP address (169.254.169.123) in all AWS regions to which you can point your NTP time-keeping service.
@@ -48,7 +48,7 @@ From [wikipedia](https://en.wikipedia.org/wiki/Leap_second):
 > The duration of one mean solar day is now slightly longer than 24 hours because the rotation of the Earth has slowed down. Therefore ... the UTC time-of-day would slowly drift apart from that of solar-based standards, such as Greenwich Mean Time (GMT). <br/>
 The purpose of a leap second is to compensate for this drift, by occasionally scheduling some UTC days with [an extra second].
 
-It seems (although I can't find a source for this) that the MiFID II approach is to 'jump' when a leap second is applied; that means either that a minute will have an extra second (i.e. 58, 59, 60 or 58, 59, 59). This may cause a problem for systems that generate unique ids by using the clock as for a short period of time, the clock may not increase.
+It seems (although I can't find a source for this) that the MiFID II approach is to 'jump' when a leap second is applied; that means either that a minute will have an extra second (i.e. 58, 59, 60 or 58, 59, 59). This may cause a problem for systems that generate unique ids using the local clock as for a short period of time, the clock may not increase.
 
 ### Smearing time
 [Amazon's approach](https://aws.amazon.com/blogs/aws/look-before-you-leap-the-coming-leap-second-and-aws/) to leap seconds is to smooth out the additional second over a 24-hour period, 12 hours each side:
@@ -80,7 +80,10 @@ For the AWS VM I configured it as per [these instructions](https://docs.aws.amaz
 {% highlight shell %}
 W32tm /stripchart /dataonly /computer:<NTP server> /period:30
 {% endhighlight %}
-... to compare the system clock against a NTP server. For some attempt at consistency I compared against `time.windows.com` and `time.nist.gov` for all tests. The tests ran for varying lengths of time (at least half an hour per VM) and a sample was taken every 30 seconds. (Generally there are fewer plots against `time.nist.gov` due to timeouts).
+... to compare the system clock against a NTP server. For some attempt at consistency I compared against `time.windows.com` and `time.nist.gov` for all tests. The tests ran for varying lengths of time (at least half an hour per VM) and a sample was taken every 30 seconds. (Generally there are fewer plots against `time.nist.gov` due to timeouts).  
+
+<br/>
+I use the same axes and colours for comparison. 10ms is the maximum drift I care about; anything else is 'off the chart'.
 
 #### AWS
 ![Windows 2016 in AWS]({{ site.baseurl }}/images/cloud-poc/aws-windows.png "Windows 2016 in AWS")
@@ -105,15 +108,20 @@ watch -n 30 "chronyc sourcestats | tee -a logfile"
 {% endhighlight %}
 ... to log the offset vs the NTP server every 30 seconds. I created a RHEL 7 VM in AWS and GCP but my Azure account (MSDN Enterprise) won't let me create RHEL 7 so I used the [closest thing](http://www.sharkyforums.com/showthread.php?308033-What-s-the-closest-free-distro-to-Red-Hat-Linux) I could find, CentOS 6.8.
 
+<br/>
+Here I set the axes to 2ms, since Linux seems to be much more accurate.
+
 #### AWS
-![RHEL 7 in AWS]({{ site.baseurl }}/images/cloud-poc/aws-windows.png "RHEL 7 in AWS")
+![RHEL 7 in AWS]({{ site.baseurl }}/images/cloud-poc/aws-linux.png "RHEL 7 in AWS")
 #### GCP
-![RHEL 7 in GCP]({{ site.baseurl }}/images/cloud-poc/gcp-windows.png "RHEL 7 in GCP")
+![RHEL 7 in GCP]({{ site.baseurl }}/images/cloud-poc/gcp-linux.png "RHEL 7 in GCP")
 #### Azure
-![CentOS 6.8 in Azure]({{ site.baseurl }}/images/cloud-poc/msa-windows.png "CentOS 6.8 in Azure")
+![CentOS 6.8 in Azure]({{ site.baseurl }}/images/cloud-poc/msa-linux.png "CentOS 6.8 in Azure")
 
 Again, possibly not much to be gleaned from this. I'm not even sure my methodology is sound! (Hence calling it a "quick and dirty" test). But on first glance (i.e. more wild guesswork) it seem:
 * Linux (particularly with `chrony`) kicks Windows' ass, even with 2016 server which is supposed to have some clock accuracy improvements
 * All local clocks stayed within 0.1ms of UTC when compared to their NTP server
 
-Looks like, at first glance, we'll be trying to run all our clock-sensitive .NET Core services on Linux!
+
+## tl;dr
+Windows Cloud VMs can have ~1 second accuracy. Linux VMs can be accurate within 0.1ms. NTP providers smear leap seconds over some varying period of time so may not be suitable for MiFID II requirements.
