@@ -7,7 +7,12 @@ tags: [microservices, cloud, docker, netcoreapp]
 draft: false
 ---
 
-This is part 1 in a series of posts where I spike out a cloud microservice app on GCP.
+This is part 1 in a series of posts where I spike out a cloud microservice app on GCP. In this post I describe the design of my simple ASP.NET Core microservice and the patterns I have followed which will help it to work well in the Cloud.
+
+* [Part 1 - the CryptoTracker app]({% post_url 2018-08-21-cryptotracker-a %}) (this page) introduces my prototype microservice app
+* [Part 2 - run in GCP]({% post_url 2018-08-21-cryptotracker-b %}) gets the app running in Docker in Google Compute Engine
+
+
 
 ## A simple .NET Core app: CryptoTracker
 
