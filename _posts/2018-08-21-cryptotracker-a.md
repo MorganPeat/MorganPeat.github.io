@@ -21,11 +21,11 @@ Best practice when logging from a docker container seems simply to be: write to 
 
 > Ideally, applications log to stdout/stderr, and Docker sends those logs to the configured logging destination.
 
-https://success.docker.com/article/logging-best-practices
+[https://success.docker.com/article/logging-best-practices](https://success.docker.com/article/logging-best-practices)
 
 > The Docker logging driver reads log events directly from the container’s stdout and stderr output; this eliminates the need to read to and write from log files.
 
-http://www.monitis.com/blog/containers-5-docker-logging-best-practices/
+[http://www.monitis.com/blog/containers-5-docker-logging-best-practices/](http://www.monitis.com/blog/containers-5-docker-logging-best-practices/)
 
 I have configured logging so it is routed through [Serilog](https://serilog.net/) using [Serilog.AspNetCore](https://github.com/serilog/serilog-aspnetcore). This ensures all application code and ASP.NET Core internal code logs the same way. I'm logging to the console in json format in the hope that I can get a Cloud logging provider (e.g. Stackdriver) to parse the json and pick up message, severity, etc.
 
@@ -41,13 +41,15 @@ There are multiple ways of picking up application configuration in a container. 
 1. Setting the application configuration dynamically via environment variables (using an external KV store)
 1. Map the config files in directly via docker volumes
 
-Option 1 is generally considered to be bad practice since (a) secrets are embedded in the image and (b) a new image needs to be published if any secrets change. Options 2 and 3 are a bit complicated for me right now (it's only a spike) so I'm going for option 2.  Handily, this is well supported in the .NET Core world where you can use json files to [configure ASP.NET Core per environment](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/#configuration-by-environment). In my app I have created a base `appsettings.json` file which contains my (only) configuration key: a mongo db connection string. By default this setting is empty. I have done this to (a) document which settings the app expects, and (b) to fail fast if a required setting is missing.  To allow local F5-style running and debugging I have added a `.gitignore`d `appsettings.Development.json` file containing a connection string to my local mongo. When running in docker I can hedge my bets and choose the most appropriate option for the infrastructure I deploy to:
+Option 1 is generally considered to be bad practice since (a) secrets are embedded in the image and (b) a new image needs to be published if any secrets change. Options 2 and 3 are a bit complicated for me right now (it's only a spike) so I'm going for option 2.  Handily, this is well supported in the .NET Core world where you can use json files to [configure ASP.NET Core per environment](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/#configuration-by-environment).   
 
-* Inject configuration through environment variables
+In my app I have created a base `appsettings.json` file which contains my (only) configuration key: a mongo db connection string. By default this setting is empty. I have done this to (a) document which settings the app expects, and (b) to fail fast if a required setting is missing.  To allow local F5-style running and debugging I have added a `.gitignore`d `appsettings.Development.json` file containing a connection string to my local mongo. When running in docker I can hedge my bets and choose the most appropriate option for the infrastructure I deploy to:
+
+*Inject configuration through environment variables*
 
 In `Startup.cs` I call `.AddEnvironmentVariables();` at the end of the configuration chain. If a setting is injected via an environment variable it will override any previously loaded settings. Exactly how this is done (i.e. Option 2 or 3) doesn't matter to my image as long as the required environment variables are present.
 
-* Map config files via docker volumes
+*Map config files via docker volumes*
 
 I haven't tried this, since I am going the Environment Variable route, but it should now be possible to map a `appsettings.Production.json` file into my container and pick up any settings that way. In `Startup.cs` I call `.AddJsonFile(Path.Combine("config", $"appsettings.{env.EnvironmentName}.json"), optional: true)`.  Here the `ASPNETCORE_ENVIRONMENT` environment variable is used to determine which configuration file should be loaded (Development, Production, etc) and, since it's optional, my app won't break if a file is missing. Note the use of `Path.Combine`: this is to cater for different path separators when running on Linux vs Windows (`/` vs `\`).`
 
