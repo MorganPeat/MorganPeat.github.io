@@ -11,6 +11,7 @@ This is part 2 in a series of posts where I spike out a cloud microservice app o
 
 * [Part 1 - the CryptoTracker app]({% post_url 2018-08-21-cryptotracker-a %}) introduces my prototype microservice app
 * [Part 2 - run in GCP]({% post_url 2018-08-21-cryptotracker-b %}) (this page) gets the app running in Docker in Google Compute Engine
+* [Part 3 - run in GKE]({% post_url 2018-08-23-cryptotracker-c %}) gets the app running in Google Kubernetes Engine
 
 
 
