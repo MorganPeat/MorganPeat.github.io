@@ -3,7 +3,7 @@ layout: post
 title:  "CI / CD using github, Docker and Kubernetes"
 date:   2018-02-02 12:00:00
 categories: [Docker]
-tags: [docker, netcoreapp, cloud]
+tags: [docker, netcoreapp, cloud, k8s]
 draft: false
 ---
 In my [last post]({% post_url 2018-01-24-docker-aspnet-core-3 %}) on this topic I got my basic ASP.NET Core Docker container up and running locally. The next step is to get it deployed to the Cloud! To do this in the quickest way possible I decided to use [Docker Cloud](https://docs.docker.com/docker-cloud/) for my automated build and to store my Docker image, and [Azure Container Service (AKS)](https://azure.microsoft.com/en-gb/services/container-service/) to host the application.
