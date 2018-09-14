@@ -13,6 +13,8 @@ This is part 4 in a series of posts where I spike out a cloud microservice app o
 * [Part 2 - run in GCP]({% post_url 2018-08-21-cryptotracker-b %}) gets the app running in Docker in Google Compute Engine
 * [Part 3 - run in GKE]({% post_url 2018-08-23-cryptotracker-c %}) gets the app running in Google Kubernetes Engine
 * [Part 4 - run in an Istio service mesh]({% post_url 2018-08-30-cryptotracker-d %}) (this page) gets the app running in an Istio service mesh
+* [Part 5 - secure the app via TLS]({% post_url 2018-09-12-cryptotracker-e %}) secures the app by using TLS over HTTPS
+
 
 
 ## Install Istio
@@ -162,6 +164,3 @@ spec:
 I can get the external ip address of my istio gateway from the GKE UI by looking for the "Load balancer" service "istio-ingressgateway". I can then point my browser to `http://<istio gateway>/api/v1/currencies` and see my list of currencies!
 
 K8s and istio manifests are available on [github](https://github.com/MorganPeat/CryptoTracker/commit/45958c).
-
-
-  
