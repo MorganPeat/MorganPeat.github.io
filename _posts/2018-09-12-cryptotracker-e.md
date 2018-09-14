@@ -100,7 +100,7 @@ The `Host` header and `--resolve` parameters are used to supply the correct [SNI
 
 The _intermediate_ certificate is used to verify the server's identity. As described above, this is fine since the server's certificate was signed by the intermediate.
 
-</p>
+<br/>
 
 It all works, but as a further test I used a new, blank, VM in a different GCP zone. Once I had created a basic VM I copied the intermediate certificate onto it by using [SCP](https://cloud.google.com/compute/docs/instances/transfer-files#linux) from the cloud shell:
 
