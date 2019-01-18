@@ -7,7 +7,7 @@ tags: [cloud, cloud-plan]
 draft: false
 ---
 
-I recently worked on a 3-month pilot project to investigate how we can move my firm's applications into the cloud. For my part, I concentrated on deploying Windows .NET services and ASP.NET applications.
+I recently worked on a 3-month pilot project to investigate how we can move my firm's applications into the cloud. For my part, I concentrated on deploying Windows .NET services and ASP.NET applications. This article documents the main things I learned, and describes key points and things to do when we move our applications onto the cloud.  
 
 # tl;dr
 
@@ -15,7 +15,9 @@ I recently worked on a 3-month pilot project to investigate how we can move my f
 * In the locked-down corporate environment, not much cloud-specific training is needed.
 * A working knowledge of Infrastructure as Code and Configuration as Code is needed. For those who will be reviewing pull requests containing IaC / CaC changes, a deeper knowledge is needed.
 * Even when IaC / CaC is used having a "sandpit" (where one can play with cloud tools manually) is important.
-
+  
+  
+    
 # Priorities
 
 A few headline things that need to be done.
